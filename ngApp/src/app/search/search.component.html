@@ -1,0 +1,61 @@
+
+<div class="container" style="margin: 0 auto;margin-top: 10px;margin-bottom: 10px;">
+
+    <div class="card bg-light">
+        <div class="card-body text-center">
+          <img class="card-img-top" src={{src}} alt="Card image" width="300px" height="300px" style="border-radius: 15px;">
+          <h4 class="card-title" style="color: royalblue;">{{service}}</h4>
+          <div class="col-md-12">
+            <label for="district" title="select the desired location" style="width: 50%;color: darkviolet;">*Select Location:</label><br>
+    
+            <select id="district" name="district" style="width: 50%;color: darkviolet;border-color: darkgoldenrod;border-radius: 8px;" title="select the desired location" (change)="changeDistrict($event)">
+                <option disabled hidden value="" selected>--click to choose--</option>
+                <option>kasargod</option>
+                <option>kannur</option>
+                <option>wayanad</option>
+                <option>kozhikkod</option>
+                <option>malappuram</option>
+                <option>palakkad</option>
+                <option>thrissur</option>
+                <option>ernakulam</option>
+                <option>idukki</option>
+                <option>kottayam</option>
+                <option>pathanamthitta</option>
+                <option>alappuzha</option>
+                <option>kollam</option>
+                <option>thiruvananthapuram</option>
+    
+              </select>
+              <div class="invalid-feedback">
+                <sup>*</sup>Please select your district
+              </div>
+        </div>
+        <div class="col-md-12" style="margin-top: 10px;margin-bottom: 10px;">
+          <label style="width: 50%;color: darkviolet;">Builder/Worker Name (- Optional -)</label><br>
+          <input type="text" [(ngModel)]="builder" style="width: 50%;color: darkviolet;border-color: darkgoldenrod;border-radius: 8px;">
+        </div>
+          <button class="btn btn-primary" (click)="searchNow()">Search Now!</button>
+        </div>
+      </div>
+
+</div>
+
+<div class="container" style="border-radius: 15px;margin: 0 auto;margin-top: 10px;margin-bottom: 10px;background-color: lavender;">
+  <h3 style="text-align: center;color: royalblue;">{{message}}</h3>
+<div class="table-responsive">
+  <table id="results" class="table" *ngIf="isResults" style="text-align: center;">
+    <tr style="color: blueviolet;">
+    <th>Builder Name</th>
+    <th>Contact No.:</th>
+    <th>Location</th>
+    </tr>
+    <tr *ngFor="let data of partnerData" style="color: purple;">
+    <td>{{data.name}}</td>
+    <td>{{data.phone}}</td>
+    <td>{{location}}</td>
+    </tr>
+    
+    </table>
+</div>
+
+</div>

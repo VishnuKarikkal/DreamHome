@@ -1,0 +1,32 @@
+<div class="card border-primary p-3 text-center" style="width: 500px;margin: 0 auto;margin-top: 10px;">
+    <img src={{partnerData.imageUrl}} alt="Card image cap" width="200px" height="200px" style="border-radius: 50%;margin: 0 auto;">
+    <div class="card-body">
+      <h5 class="card-title" style="color: blueviolet;">{{partnerData.name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" style="color: royalblue;">{{partnerData.email}}</li>
+      <li class="list-group-item" style="color: brown;">{{partnerData.phone}}</li>
+       <!-- array items-districts and services -->
+      <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="" style="color:purple;">Active Locations:</label><br>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let district of partnerData.district" style="color: blue;">{{district}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <label for="" style="color: purple;">Services:</label><br>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let service of partnerData.services" style="color: blue;">{{service}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+
+    </ul>
+    <div class="card-body">
+      <a class="card-link" routerLink="/updatePartner">Edit My Info</a>
+    </div>
+  </div>
+

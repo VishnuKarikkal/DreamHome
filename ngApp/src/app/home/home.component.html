@@ -1,0 +1,74 @@
+<section id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h1 class="promo-title">Dream Home</h1>
+                <p style="font-family: 'Baloo 2', cursive;">You Dream, We Guide!</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <!-- style="border-radius: 50%;width: 400px;height: 400px;" -->
+                <img src="../../assets/img/hme.png" alt="promo-img"  class="image-fluid" style="width: 400px;height: 400px;">
+            </div>
+        </div>
+    </div>
+    <img src="../../assets/img/wave.png" alt="wave" class="img-bottom" >
+</section>
+<section id="services">
+
+    <div class="container text-center">
+        <h2 class="title" style="color:royalblue;">WHAT WE DO ?</h2>
+        <div class="row text-center">
+            <div class="col-md-4 services" style="font-family: 'Baloo 2', cursive;">
+                <img src="../../assets/img/data.png" alt="3rd img" class="service-img" style="height:100px;">
+                <h5 style="color: blueviolet;">Finding the Right Worker.</h5>
+                <p style="color: violet;">We have the Data of more than 300 worker groups spanning all 14 Districts of Kerala!</p>
+            </div>
+            <div class="col-md-4 services" style="font-family: 'Baloo 2', cursive;">
+                <img src="../../assets/img/userSatisfied.png" alt="4th img" class="service-img" style="height:100px;">
+                <h5 style="color: blueviolet;">One Click Solution.</h5>
+                <p style="color: violet;">Once signing in, any user can avail the Details of the Builders/Workers according to their NEED!</p>
+            </div>
+            <div class="col-md-4 services" style="font-family: 'Baloo 2', cursive;">
+                <img src="../../assets/img/prtnrsprt.png" alt="5th img" class="service-img" style="border-radius: 50%;height:100px;">
+                <h5 style="color: blueviolet;">Builder/Worker Support</h5>
+                <p style="color: violet;">The Builders/Workers Signed-in can assure maximum Work Support from various Parts of the State!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="partner-area" *ngIf="!user.loggedIn()">
+    <div class="container text-center">
+        <h3 style="color: royalblue;margin-bottom: 30px;font-family: 'Titan One', cursive;">Partner Area</h3>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="../../assets/img/partner-area.png" alt="partner-area" style="border-radius: 50%;"><br>
+                <a class="title" style="color: blueviolet;margin-top: 10px;" routerLink="/signupPartner">Become a Partner.</a><br>
+                <a class="title" style="color: darkgoldenrod;margin-top: 10px;" routerLink="/loginPartner">Already a Partner?! Sign-in here.</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" style="margin: 100px 0;">
+
+    <div class="container">
+<h5 class="text-center title" style="color: royalblue;">What Clients Say..</h5>
+        <div class="row offset-1">
+            <div class="col-md-5 testimonials">
+                <p style="color: crimson;font-family: 'Gayathri', sans-serif;">Thank You DH..! Its only a Click matters!</p>
+<img src="../../assets/img/userTest.png" alt="6th img">
+<p class="user-details" style="color: violet;">Mr. Anonymous</p>
+
+            </div>
+            <div class="col-md-5 testimonials">
+                <p style="color: crimson;font-family: 'Gayathri', sans-serif;">Nice experience!</p>
+                <img src="../../assets/img/user2Test.png" alt="7th img">
+                <p class="user-details" style="color: violet;">Ms. Beauty</p>
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+

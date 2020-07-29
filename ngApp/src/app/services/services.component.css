@@ -1,0 +1,27 @@
+.card div:nth-child(n):hover
+{
+    background-color: cornflowerblue;
+    border-radius: 15px;
+}
+.card div:nth-child(n):hover h4
+{
+    color: ghostwhite;
+}
+.card div:nth-child(n):hover a
+{
+    background-color: chartreuse;
+    color: ghostwhite;
+}
+
+.card a:hover
+{
+   color: red !important;
+}
+.card h4
+{
+    color: darkmagenta;
+}
+.card
+{
+    border-radius: 15px;
+}

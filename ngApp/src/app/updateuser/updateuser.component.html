@@ -1,0 +1,85 @@
+<div class="container" style="border:1px solid grey;border-radius: 15px;margin-top: 10px;">
+    <h2 style="text-align: center;color: blue;">Update Info</h2>
+ 
+<form [formGroup]="signupform" (ngSubmit)="update()" style="margin: 0 auto;">
+
+    <div class="container">
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="name">Enter Name:</label><br>
+
+        <input type="text" name="name" formControlName="name" placeholder="enter name" [(ngModel)]="userData.name" style="width: 50%;"
+        [class.is-invalid]="signupform.get('name').invalid && signupform.get('name').touched">
+        <!-- validating -->
+        <div *ngIf="signupform.get('name').invalid && signupform.get('name').touched ">
+            <small *ngIf="signupform.get('name').errors?.pattern" class="text-danger">numbers and special characters are not allowed</small>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="place" title="only alphabets allowed">Place:</label><br>
+
+        <input type="text" name="place" formControlName="place" placeholder="enter Place" [(ngModel)]="userData.place" style="width: 50%;" title="only alphabets allowed"
+        [class.is-invalid]="signupform.get('place').invalid && signupform.get('place').touched">
+        <!-- validating -->
+        <div *ngIf="signupform.get('place').invalid && signupform.get('place').touched ">
+            <small *ngIf="signupform.get('place').errors?.pattern" class="text-danger">numbers,space and special characters are not allowed</small>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="district">District:</label><br>
+
+        <select id="district" name="district" style="width: 50%;" (change)="changeDistrict($event)">
+            
+            <option id='kasargod'>kasargod</option>
+            <option id='kannur'>kannur</option>
+            <option id='wayanad'>wayanad</option>
+            <option id='kozhikkod'>kozhikkod</option>
+            <option id='malappuram'>malappuram</option>
+            <option id='palakkad'>palakkad</option>
+            <option id='thrissur'>thrissur</option>
+            <option id='ernakulam'>ernakulam</option>
+            <option id='idukki'>idukki</option>
+            <option id='kottayam'>kottayam</option>
+            <option id='pathanamthitta'>pathanamthitta</option>
+            <option id='alappuzha'>alappuzha</option>
+            <option id='kollam'>kollam</option>
+            <option id='thiruvananthapuram'>thiruvananthapuram</option>
+
+          </select>
+          <div class="text-info">
+            <sup>*</sup>Please select your district
+          </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="phone" title="input format: xxx-xxx-xxxx">Phone Number:</label><br>
+
+        <input type="text" name="phone" formControlName="phone" placeholder="enter Phone Number" [(ngModel)]="userData.phone" style="width: 50%;" title="input format: xxx-xxx-xxxx"
+        [class.is-invalid]="signupform.get('phone').invalid && signupform.get('phone').touched">
+        <!-- validating -->
+        <div *ngIf="signupform.get('phone').invalid && signupform.get('phone').touched ">
+            <small *ngIf="signupform.get('phone').errors?.pattern" class="text-danger">enter a valid phone number and please use the Format: xxx-xxx-xxxx</small>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+       <button class="btn btn-warning" [disabled]="signupform.invalid"  type="submit">Update</button>
+    </div>          
+</div>
+    </div>
+</form>
+
+</div>

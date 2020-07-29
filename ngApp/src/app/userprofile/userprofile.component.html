@@ -1,0 +1,33 @@
+<div class="container" style="margin: 0 auto;margin-top: 10px;"> 
+  
+  <div class="row">
+    <div class="col-md-6" style="margin: 0 auto;">
+      <div class="card border-primary p-3" style="margin: 0 auto;margin-top: 10px;">
+        <img src={{userData.imageUrl}} alt="Card image cap" width="200px" height="200px" style="border-radius: 50%;margin: 0 auto;">
+        <div class="card-body">
+          <h5 class="card-title" style="color: blueviolet;">{{userData.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style="color: brown;font-size: 15pt;">{{userData.email}}</li>
+          <li class="list-group-item" style="color: brown;">{{userData.phone}}</li>
+          <li class="list-group-item" style="color: brown;">District - {{userData.district}}</li>
+          <li class="list-group-item" style="color: brown;">{{userData.place}}</li>
+        </ul>
+        <div class="card-body">
+          <button routerLink="/updateUser" class="btn btn-primary card-link">Edit My Info</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6" *ngIf="user.identifyUserRole()" style="margin: 0 auto;">
+      <div class="card border-danger" style="width: 13rem;height: 400px;margin: 0 auto;margin-top: 10px;">
+        <img class="card-img-top" src="../../assets/img/admin avtar.jpg" alt="Card image cap" width="200px" height="200px">
+        <div class="card-body">
+          <h5 class="card-title">User Control.</h5>
+          <!-- <a href="#" class="btn btn-primary" style="margin-top: 10px;">View all Users</a> -->
+          <a href="#" class="btn btn-primary" style="margin-top: 10px;" routerLink='/userControl'>View all Partners</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

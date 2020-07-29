@@ -1,0 +1,135 @@
+<div class="container" style="border:1px solid grey;border-radius: 15px;margin-top: 10px;background-color: lightgrey;">
+    <h2 style="text-align: center;color: blue;">Partner Signup</h2>
+   
+    <div id="imgDiv" class="container" style="margin-top: 15px;">       <!--image-->
+        <div style="margin: 0 auto;width: fit-content;">
+            <img src="../../assets/img/partners.png" alt="signup img" width="220px" height="200px" style="margin-bottom:5px;">
+        </div>
+            </div>
+    <form [formGroup]="signupform" (ngSubmit)="signup()">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="img">Choose Profile Image</label>
+                    <input type="file" name="image" id="img" (change)="showFiles($event)">
+                    <div class="container" 
+                    style="border: 1px dotted yellowgreen;border-radius: 15px;height: 280px;width: 320px;">
+                        <img id="preview" src="" alt="" width="250px" height="250px" style="margin: 0 auto;margin-top: 10px;border: 3px solid crimson;border-radius: 15px;">
+                    </div>      
+                </div>
+            </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="name">Enter Name:</label><br>
+    
+            <input type="text" name="name" formControlName="name" placeholder="enter name" [(ngModel)]="partnerData.name" style="width: 50%;"
+            [class.is-invalid]="signupform.get('name').invalid && signupform.get('name').touched">
+            <!-- validating -->
+            <div *ngIf="signupform.get('name').invalid && signupform.get('name').touched ">
+                <small *ngIf="signupform.get('name').errors?.pattern" class="text-danger">numbers and special characters are not allowed</small>
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <label for="district" title="hold ctrl to select multiple locations">Activity Locations:</label><br>
+    
+            <select id="district" name="district" formControlName="district"  style="width: 50%;" multiple title="hold ctrl to select multiple locations">
+                
+                <option>kasargod</option>
+                <option>kannur</option>
+                <option>wayanad</option>
+                <option>kozhikkod</option>
+                <option>malappuram</option>
+                <option>palakkad</option>
+                <option>thrissur</option>
+                <option>ernakulam</option>
+                <option>idukki</option>
+                <option>kottayam</option>
+                <option>pathanamthitta</option>
+                <option>alappuzha</option>
+                <option>kollam</option>
+                <option>thiruvananthapuram</option>
+
+              </select>
+              <div class="invalid-feedback" *ngIf="signupform.get('district').errors?.required">
+                <sup>*</sup>Please select your district
+              </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <label for="service" title="hold ctrl to select multiple services">Services Offer:</label><br>
+    
+            <select id="service" name="service" formControlName="service"  style="width: 50%;" multiple title="hold ctrl to select multiple services">
+                
+                <option>construction</option>
+                <option>electrical works</option>
+                <option>plumbing</option>
+                <option>interior design</option>
+                <option>garden making</option>
+                <option>maintenance</option>
+                <option>furnishing</option>
+                <option>painting</option>
+                
+              </select>
+              <div class="invalid-feedback" *ngIf="signupform.get('service').errors?.required">
+                <sup>*</sup>Please select the services you offer
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="phone" title="input format: xxx-xxx-xxxx">Phone Number:</label><br>
+    
+            <input type="text" name="phone" formControlName="phone" placeholder="enter Phone Number" [(ngModel)]="partnerData.phone" style="width: 50%;" title="input format: xxx-xxx-xxxx"
+            [class.is-invalid]="signupform.get('phone').invalid && signupform.get('phone').touched">
+            <!-- validating -->
+            <div *ngIf="signupform.get('phone').invalid && signupform.get('phone').touched ">
+                <small *ngIf="signupform.get('phone').errors?.pattern" class="text-danger">enter a valid phone number and please use the Format: xxx-xxx-xxxx</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <label for="email" title="This will be your Username for the site">Email:</label><br>
+    
+            <input type="text" name="email" formControlName="email" placeholder="enter Email" title="This will be your Username for the site" [(ngModel)]="partnerData.email" style="width: 50%;"
+            [class.is-invalid]="signupform.get('email').invalid && signupform.get('email').touched">
+            <!-- validating -->
+            <div *ngIf="signupform.get('email').invalid && signupform.get('email').touched ">
+                <small *ngIf="signupform.get('email').errors?.pattern" class="text-danger">Enter a Valid Email</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <label for="password" title="Must include: Lowercase and Uppercase Letters, number and any special character among(!@#$%&*)">Password:</label><br>
+    
+            <input type="password" name="password" formControlName="password" placeholder="enter password" title="Must include: Lowercase and Uppercase Letters, number and any special character among(!@#$%&*)" [(ngModel)]="partnerData.password" style="width: 50%;"
+            [class.is-invalid]="signupform.get('password').invalid && signupform.get('password').touched">
+            <!-- validating -->
+            <div *ngIf="signupform.get('password').invalid && signupform.get('password').touched ">
+                <small *ngIf="signupform.get('password').errors?.pattern" class="text-danger">Must include: Lowercase and Uppercase Letters, number and any special character among(!@#$%&*)</small>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-12">
+           <button class="btn btn-warning" [disabled]="signupform.invalid"  type="submit">Submit</button>
+        </div>          
+    </div>
+        </div>
+    </form>
+
+</div>

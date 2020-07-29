@@ -1,0 +1,106 @@
+
+
+<!-- my nav links -->
+<!-- <div class="container">
+    <ul class="user" style="list-style: none;display: inline;">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="!user.identifyUserRole() && !user.isPartner()" routerLink='/services'>Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="user.identifyUserRole()" routerLink='/users' >Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="user.identifyUserRole()" routerLink='/partners' >Partners</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/signupPartner">Partner Signup</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/loginPartner">Partner Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signupUser">Signup</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/loginUser">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link logout-nav" *ngIf="user.loggedIn()" routerLink='logout' (click)="logout()">Logout</a>
+      </li>
+      </ul>
+</div>
+    
+
+  <nav *ngIf="user.loggedIn()">
+      <a *ngIf="user.identifyUserRole()" routerLink="/userProfile">Admin Profile</a>
+      <a *ngIf="!user.identifyUserRole() && !user.isPartner()" routerLink="/userProfile">Normal User Profile</a>
+      <a *ngIf="user.isPartner()" routerLink="/partnerProfile">Partner Profile</a>
+  </nav> -->
+
+  <!-- nav bootstrp  navbar-dark bg-primary -->
+
+  <nav class="navbar navbar-expand-lg">
+    <button class="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <img src="../../assets/img/icn.webp" alt="icn" width="60px" height="60px">
+    <a class="navbar-brand" routerLink="/" style="font-family: 'Berkshire Swash', cursive;color: white;margin-left: 5px;">Dream Home</a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="font-family: 'Baloo 2', cursive;">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="user.loggedIn()" routerLink='/services'>Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="!user.loggedIn()" routerLink="/signupUser">Signup</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="!user.loggedIn()" routerLink="/loginUser">Login</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/signupPartner">Partner Signup</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/loginPartner">Partner Login</a>
+      </li> -->
+        <!-- <li id="dashboard" class="nav-item dropdown" *ngIf="user.loggedIn()">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dashboard
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" *ngIf="!user.identifyUserRole() && !user.isPartner()" routerLink="/userProfile">User Profile</a>
+              <a class="dropdown-item" *ngIf="user.identifyUserRole()" routerLink="/userProfile">Admin Profile</a>
+              <a class="dropdown-item" *ngIf="user.isPartner()" routerLink="/partnerProfile">Partner Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/" (click)="logout()">Logout</a>
+            </div>
+          </li> -->
+    
+    </ul>
+      <ul id="dashboard" class="navbar-nav" *ngIf="user.loggedIn()">
+        <li  class="nav-item dropdown" >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="color: chartreuse;font-size: 17pt;">
+              Dashboard
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:wheat">
+              <a class="dropdown-item" *ngIf="!user.identifyUserRole() && !user.isPartner()" routerLink="/userProfile" style="color: darkviolet;font-family: 'Baloo 2', cursive;">User Profile</a>
+              <a class="dropdown-item" *ngIf="user.identifyUserRole()" routerLink="/userProfile" style="color: darkviolet;font-family: 'Baloo 2', cursive;">Admin Profile</a>
+              <a class="dropdown-item" *ngIf="user.isPartner()" routerLink="/partnerProfile" style="color: darkviolet;font-family: 'Baloo 2', cursive;">Partner Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/" (click)="logout()" style="color: darkslateblue;font-family: 'Baloo 2', cursive;">Logout</a>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+
+

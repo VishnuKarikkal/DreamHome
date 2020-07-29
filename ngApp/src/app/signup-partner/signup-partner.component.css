@@ -1,0 +1,38 @@
+form
+{
+    font-family: 'Baloo 2', cursive;
+    background-color: white;
+    border: 1px solid gray;
+    color: blue;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 50vw;
+}
+.row
+{
+    margin-top: 10px;
+    width: 100%;
+    margin: 10 auto;
+}
+.col-md-12
+{
+    margin: 0 auto;
+    text-align: center;
+
+}
+button
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input
+{
+    /* margin-left: 15px; */
+    color: blue;
+    border-radius: 10px;
+}
+button:hover
+{
+    background-color: blueviolet;
+}

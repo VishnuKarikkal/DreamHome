@@ -1,0 +1,39 @@
+<div class="container" style="margin: 0 auto;margin-top: 10px;background-color: darkviolet;height: fit-content;border-radius: 15px;">
+    <div class="row text-center">
+        <div class="col-md-6" style="margin: 0 auto;">
+            <h5>Total Partners Signed-Up:</h5>
+                    <h3>{{partnerData.length}}</h3>
+        </div>
+        <label for=""></label>
+    </div>
+</div>
+<div class="container" style="border-radius: 15px;margin: 0 auto;margin-top: 10px;margin-bottom: 10px;background-color: lavender;">
+    <h3 style="text-align: center;color: royalblue;font-family: 'Baloo 2', cursive;">Partners Registered so far..</h3>
+  <div class="table-responsive">
+    <table id="results" class="table" style="text-align: center;">
+      <tr style="color: blueviolet;">
+      <th>Profile Image</th>
+      <th>Builder Name</th>
+      <th>Email</th>
+      <th>Contact No.:</th>
+      <th>Action</th>
+      </tr>
+      <tr *ngFor="let data of partnerData" style="color: purple;">
+      <td>    <!--image preview table column-->
+        <div class="container" 
+        style="border: 1px dotted yellowgreen;border-radius: 15px;height: 200px;width: 240px;">
+            <img id="preview" src={{data.imageUrl}} alt="" width="200px" height="200px" style="margin: 0 auto;border: 3px solid crimson;border-radius: 15px;">
+        </div>   
+      </td>
+      <td><h5 style="margin-top: 60px;">{{data.name}}</h5></td>
+      <td><h5 style="margin-top: 60px;">{{data.email}}</h5></td>
+      <td><h5 style="margin-top: 60px;">{{data.phone}}</h5></td>
+         <td>
+          <button type="submit" class="btn btn-danger" (click)="deletePartner(data._id)" style="margin-top: 60px;">Delete</button>
+        </td>
+      </tr>
+      
+      </table>
+  </div>
+  
+  </div>
