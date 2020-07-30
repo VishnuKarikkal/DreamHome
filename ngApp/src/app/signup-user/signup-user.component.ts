@@ -70,11 +70,20 @@ changeDistrict(e)
       {
         url=res['url'];
         this.userData.imageUrl=url;
-        this.usersService.signupUser(this.userData);
-      })
-     console.log("Account added!");
-     alert("Account added!");
-     this.router.navigate(['/loginUser']);
+        this.usersService.signupUser(this.userData)
+        .subscribe(
+          (res)=>{
+          if(res['status']=="OK!")      //checking signup status
+          {
+            alert("Account added!");
+            this.router.navigate(['/loginUser']);
+          }
+          else
+          {
+            alert("Please try another credentials!");
+          }
+                });
+      });
     }
      
   }

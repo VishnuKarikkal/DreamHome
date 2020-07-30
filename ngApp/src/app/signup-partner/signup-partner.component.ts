@@ -78,15 +78,27 @@ alert("Please choose a profile image!");
   }
 this.partnerData.services=str;    //identifying services selected
 let url;
-this.usersService.userImage(this.image).subscribe((res)=>
+this.usersService.userImage(this.image)
+.subscribe((res)=>
 {
 url=res['url'];
 this.partnerData.imageUrl=url;
-this.usersService.signupPartner(this.partnerData);
+this.usersService.signupPartner(this.partnerData)
+.subscribe(
+  (res)=>
+  {
+    if(res['status']=="OK!")      //checking signup status
+          {
+            alert("Account added!");
+            this.router.navigate(['/loginPartner']);
+          }
+    else
+          {
+            alert("Please try another credentials!");
+          }
+    });
+  
 });
-console.log("Account added!");
-alert("Account added!");
-this.router.navigate(['/loginPartner']);
  }
 }
 }

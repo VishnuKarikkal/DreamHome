@@ -24,10 +24,11 @@ export class UsersService {
   signupUser(user)
   {
     console.log(user);
-    return this.http.post(this._signupUserUrl,{"user":user}).subscribe((data)=>
-    {
-      console.log(data);
-    })
+    return this.http.post(this._signupUserUrl,{"user":user})
+    // .subscribe((data)=>
+    // {
+    //   console.log(data);
+    // })
   }
   userImage(profileImage: File)
   {                       //image upload
@@ -46,10 +47,11 @@ export class UsersService {
   {
     console.log("srvc");
     console.log(partner);
-   return this.http.post(this._signupPartnerUrl,{"partner":partner}).subscribe((data)=>
-   {
-     console.log(data);
-   })
+   return this.http.post(this._signupPartnerUrl,{"partner":partner})
+  //  .subscribe((data)=>
+  //  {
+  //    console.log(data);
+  //  })
   }
   signinPartner(partner)
   {

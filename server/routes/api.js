@@ -88,19 +88,38 @@ router.post('/signupUser',(req,res)=>
                              };
                              let user=userData(data);
 
-                      user.save((err,userSigned)=>
-                       {
-                           if(err)
-                           {
-                               console.log("errrrorrrr:"+err);
-                           }
-                           else
-                           {
-                               let payload={subject:userSigned._id,type:userSigned.type};
-                               let token=jwt.sign(payload,'secretkey');
-                               res.send({token});
-                           }
-                       });
+                             userData.findOne({email:email,password:password},(err,result)=> 
+                             {
+                               if(err)
+                               {
+                                 res.send({status:"Credentials Taken!"})
+                               }
+                               else
+                               {
+                                 if(!result)
+                                 {
+                                  user.save((err,userSigned)=>
+                                  {
+                                      if(err)
+                                      {
+                                          console.log("errrrorrrr:"+err);
+                                      }
+                                      else
+                                      {
+                                        let payload={subject:userSigned._id,type:userSigned.type};
+                                        let token=jwt.sign(payload,'secretkey');
+                                        res.send({status:"OK!",token});
+                                      }
+                                  });
+                                  // res.send({status:"OK!"})
+                                 }
+                                 else
+                                 {
+                                   res.send({status:"Credentials Taken!"})
+                                 }
+                               }
+                             })
+                      
                             
                         });
 
@@ -154,19 +173,40 @@ router.post('/signupPartner',(req,res)=>
     imageUrl:req.body.partner.imageUrl
   }
   let partner=partnerData(data);
-  partner.save((err,partnerSigned)=>
+ 
+  partnerData.findOne({email:email,password:password},(err,result)=> 
   {
-      if(err)
+    if(err)
+    {
+      res.send({status:"Credentials Taken!"})
+    }
+    else
+    {
+      if(!result)
       {
-          console.log("errrrorrrr:"+err);
+       
+        partner.save((err,partnerSigned)=>
+        {
+            if(err)
+            {
+                console.log("errrrorrrr:"+err);
+            }
+            else
+            {
+                let payload={subject:partnerSigned._id,type:'partner'};
+                let token=jwt.sign(payload,'secretkey');
+                res.send({token,status:"OK!"});
+            }
+        });
+        
       }
       else
       {
-          let payload={subject:partnerSigned._id,type:'partner'};
-          let token=jwt.sign(payload,'secretkey');
-          res.send({token});
+        res.send({status:"Credentials Taken!"})
       }
-  });
+    }
+  })
+ 
 })
 
 router.post('/signinPartner',(req,res)=>
