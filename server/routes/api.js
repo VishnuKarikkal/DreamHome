@@ -74,6 +74,8 @@ router.post('/signupUser',(req,res)=>
         res.header("Access-Control-Allow-Origin","*");
         res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
                 
+        const email=req.body.user.email;
+        const password=req.body.user.password;
         
                           let data = 
                             {
@@ -162,6 +164,8 @@ router.post('/signupPartner',(req,res)=>
 {
   res.header("Access-Control-Allow-Origin","*");
   res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+  const email=req.body.partner.email;
+  const password=req.body.partner.password;
   let data=
   {
     name:req.body.partner.name,
